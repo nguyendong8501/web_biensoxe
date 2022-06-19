@@ -1,0 +1,65 @@
+{% include "header.html" %}
+
+{% block body %}
+<div class="bg-image" 
+style="background-image: url('https://media.wired.com/photos/5d09594a62bcb0c9752779d9/16:9/w_2000,h_1125,c_limit/Transpo_G70_TA-518126.jpg');
+       height: 120vh">
+    <div class="container">
+        
+        <h1 class="text-center" style="font-size: 10vh">Nhận diện biển số xe</h1>
+        <hr>
+
+        <h2>Mô tả:</h2>
+        <h4>Trang web cung cấp dịch vụ nhận dạng biển số xe qua hình ảnh</h4>
+
+        <hr>
+        <br><br>
+        <h2>Tải ảnh của bạn lên</h2>
+
+        <div class="text-center">
+            <form action="scanner" method=post enctype=multipart/form-data>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" name="file" class="custom-file-input" id="inputGroupFile01"
+                               aria-describedby="inputGroupFileAddon01" accept="image/*" onchange="readURL(this)">
+                        <label class="custom-file-label" for="inputGroupFile01">Chọn file ảnh..</label>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-danger">Nhận diện</button>
+            </form>
+           
+            <img class="img-last" id="blah" src="https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png">
+        </div>
+    </div>
+    </div>
+
+{% if scanned %}
+    <hr>
+    <h1>Scanned results</h1>
+{% endif %}
+{% endblock body %}
+<script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+  
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+                .width(400)
+                .height(280);
+        };
+  
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+  </script>
+ 
+{% include "footer.html" %}
+<style>
+    body {
+              background-image: url('background.jpg');
+            }
+    </style>

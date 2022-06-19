@@ -1,0 +1,24 @@
+{% include "header.html" %}
+
+{% block body %}
+<div class="bg-image" 
+style="background-image: url('https://media.wired.com/photos/5d09594a62bcb0c9752779d9/16:9/w_2000,h_1125,c_limit/Transpo_G70_TA-518126.jpg');
+       height: 100vh">
+    <div class="container">
+        <br>
+        <br>
+        <h1>Kết quả</h1>
+        <hr>
+
+        <h2>Thông tin</h2>
+        <!-- <p>Words: {{ words }}</p> -->
+        <p>Thời gian: {{ time }} giây</p>
+        <hr>
+        <img src="{{ user_image }}">
+        <h2>Biển số: {{ text }}</h2>
+        <!-- <p class="text-white bg-dark">{{ text }}</p> -->
+    </div>
+    </div>
+{% endblock body %}
+
+{% include "footer.html" %}
